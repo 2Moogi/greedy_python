@@ -1,22 +1,6 @@
-import sys,math
-input=sys.stdin.readline
+A, B = map(int, input().split())
+N = int(input())
 
-a,b=map(int,input().split())
-n=int(input())
-button_list=[]
-data=[]
-for i in range(n):
-    button=int(input())
-    button_list.append(button)
-for i in range(n):
-    result = min(abs(a-b),abs(button_list[i]-b))
-    if abs(button_list[i]-b) < abs(a-b):
-        result +=1
-    data.append(result)
+record = [abs(int(input())-B) for i in range(N)]
 
-if a == b:
-    print(0)
-elif b in button_list:
-    print(1)
-else:
-    print(min(data))
+print(min(abs(A-B), min(record)+1))

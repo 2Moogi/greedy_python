@@ -1,15 +1,19 @@
 import sys
-n=int(sys.stdin.readline())
-tmp1=(list(map(int, sys.stdin.readline().split())))
-jun=tmp1[0]
-tmp1.pop(0)
-tmp1.sort()
-for i in tmp1:
-  if i<jun :
-    jun+=i
-    ans="Yes"
-  else:
-    ans="No"
-    break
-if len (tmp1)!=0: print(ans)
-else: print("Yes")
+input=sys.stdin.readline
+
+n=int(input())
+acc=list(map(int,input().split()))
+x=acc[0]
+del acc[0]
+acc.sort()
+
+for i in range(n-1):
+    y=acc[i]
+    if x <= y :
+        print('No')
+        break
+    else:
+        x += y
+else:
+    print('Yes')
+        
